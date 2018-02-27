@@ -1,0 +1,32 @@
+.flex-div{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: yellow;
+}
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.layer {
+  width: 600px;
+  height: 200px;
+  background-color: green;
+}
+.layer div {
+  width: 400px;
+  height: 100px;
+  background-color: red;
+}

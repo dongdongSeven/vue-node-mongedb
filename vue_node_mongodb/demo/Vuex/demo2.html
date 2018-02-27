@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vuex - action</title>
+  <script src="../../node_modules/vue/dist/vue.js"></script>
+  <script src="../../node_modules/vuex/dist/vuex.min.js"></script>
+</head>
+</head>
+<body>
+  <div id="app">
+    <div>{{msg}}</div>
+    <div><a href="javascript:;" @click="add">点我</a></div>
+    <counter></counter>
+  </div>
+  <script>
+    const counter={
+      template:`
+        <div>
+          <div>{{count}}</div>
+          <div>{{userName}}</div>
+        </div>
+      `,
+      computed:{
+        count() {
+          return this.$store.state.count;
+        },
+        name() {
+          return this.$store.state.name;
+        },
+        userName() {
+          return this.$store.getters.userName;
+        }
+      }
+    }
+    const store = new Vuex.Store({
+      state:{
+        count:0,
+        name:'jack'
+      },
+      getters:{
+        userName(state) {
+          return state.name+",hello";
+        }
+      },
+      mutations:{
+        increment(state,num) {
+          state.count +=num;
+        }
+      },
+      actions:{
+        incrementAction(context,num) {
+          context.commit("increment",num);
+        }
+      }
+    });
+    new Vue({
+      el:'#app',
+      store,
+      data:{
+        msg:"hello"
+      },
+      components:{
+        counter
+      },
+      methods:{
+        add() {
+          this.$store.dispatch("incrementAction",5);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

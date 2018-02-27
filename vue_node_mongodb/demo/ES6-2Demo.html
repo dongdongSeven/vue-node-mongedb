@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function  sum (x,y,z) {
+    let total=0;
+    if(x) total+=x;
+    if(y) total+=y;
+    if(z) total+=z;
+    console.log(`total is ${total}`);
+  }
+  sum (5,'',9);
+  function sum2(...m) {
+    let total = 0;
+    for(let i of m){
+        total+=i;
+    }
+    console.log(`total is ${total}`);
+  };
+  sum2(1,2,3,4);
+
+  let sum3=(...m)=>{
+    let total = 0;
+    for(var i of m){
+      total+=i;
+    }
+    console.log(`total is ${total}`);
+  }
+  sum3(1,2,3,4);
+
+  var [x,y]=[4,8];
+  console.log(...[4,8]);
+
+  let arr1=[1,3];
+  let arr2=[4,8];
+  console.log("concat:"+arr1.concat(arr2));//等价于下面
+  console.log([...arr1,...arr2]);
+
+var [x,...y]=[4,8,10,30];
+console.log(y);
+let [a,b,c]="ES6";
+console.log(a,b,c);
+let xy=[...'ES6'];
+console.log(xy);
+</script>
+</body>
+</html>

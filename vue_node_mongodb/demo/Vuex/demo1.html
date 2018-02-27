@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vuex - state</title>
+  <script src="../../node_modules/vue/dist/vue.js"></script>
+  <script src="../../node_modules/vuex/dist/vuex.min.js"></script>
+</head>
+<body>
+<div id="app">
+  <h2>{{msg}}</h2>
+  <div><a href="javascript:;" @click="add">点击</a></div>
+  <counter></counter>
+</div>
+<script>
+  const counter = {
+    template:`
+      <div>{{count}},{{name}}</div>
+    `,
+    computed:{
+      count() {
+        return this.$store.state.count;
+      },
+      name() {
+        return this.$store.state.name;
+      }
+    }
+  };
+  const store = new Vuex.Store({
+    state:{
+      count:0,
+      name:'jack'
+    },
+    mutations:{
+      increment(state,num) {
+        state.count+=num;
+      },
+      update(state) {
+        state.name = 'dong'
+      }
+    }
+  });
+  new Vue({
+    el:"#app",
+    store,
+    data:{
+      msg:'hello',
+      count:0
+    },
+    components:{
+      counter
+    },
+    methods:{
+      add() {
+        this.$store.commit("increment",5);
+        this.$store.commit("update");
+      }
+    }
+  })
+</script>
+</body>
+</html>

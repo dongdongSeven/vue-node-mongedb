@@ -1,0 +1,32 @@
+var path = require('path');
+
+module.exports={
+  entry:"./src/lib/index.js",
+  output:{
+    path:path.resolve(__dirname,'./dis'),
+    filename:"vue-toast-demo.js",
+    libraryTarget:'umd',
+    library:'VueToastDemoDongdong'
+  },
+  module:{
+    rules:[
+      {
+        test:/\.vue$/,
+        loader:'vue-loader',
+        exclude:/node_modules/,
+        options:{
+          loaders:{
+            scss:'style-loader!css-loader!sass-loader'
+          }
+        }
+      },
+      {
+        test:/\.js$/,
+        loader:'babel-loader',
+        include:path.resolve(__dirname,'src'),
+        exclude:/node_modules/
+      }
+    ]
+  },
+  plugins:[]
+}

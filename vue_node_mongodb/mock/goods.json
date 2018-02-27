@@ -1,0 +1,30 @@
+{
+  "status":"0",
+  "msg":"",
+  "result":[
+    {
+      "productId":"10001",
+      "productName":"音箱",
+      "productPrice":2499,
+      "productImg":"1.jpg"
+    },
+    {
+      "productId":"10002",
+      "productName":"小米7",
+      "productPrice":2499,
+      "productImg":"2.jpg"
+    },
+    {
+      "productId":"10003",
+      "productName":"小米8",
+      "productPrice":2499,
+      "productImg":"3.jpg"
+    },
+    {
+      "productId":"10004",
+      "productName":"小米9",
+      "productPrice":2499,
+      "productImg":"4.jpg"
+    }
+  ]
+}
